@@ -6,15 +6,35 @@ Works for any role, industry, or career level. Categories are discovered from yo
 
 ## Prerequisites
 
+**Required:**
 - [Claude Code](https://claude.ai/code)
-- [pandoc](https://pandoc.org/installing.html) + [weasyprint](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html) (for PDF generation)
-- [Notion MCP Server](https://developers.notion.com/guides/mcp/get-started-with-mcp) 
+
+**Optional (for PDF generation):**
+- [pandoc](https://pandoc.org/installing.html)
+- [weasyprint](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html)
+
+**Optional (for application tracking):**
+- [Notion MCP Server](https://developers.notion.com/guides/mcp/get-started-with-mcp)
 
 ## Setup
 
-1. **Fork & clone** this repo
-2. **Edit `config.yaml`** — fill in your name, email, location, and LinkedIn URL
-3. **Replace `work-experience.md`** with your own career history. Be verbose — include every project, metric, and achievement. Claude distills it into polished bullet points. The example file shows the expected format.
+### Quick Setup (Recommended)
+
+Fork & clone this repo, then run the interactive setup script:
+
+```bash
+./setup.sh
+```
+
+This will check dependencies, prompt for your info, and clear example content so you start fresh.
+
+> **Windows users:** Use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) (Windows Subsystem for Linux). Claude Code and this toolkit require a Unix shell.
+
+### Manual Setup
+
+1. **Edit `config.yaml`** — fill in your name, email, location, and LinkedIn URL
+2. **Replace `work-experience.md`** with your own career history. Be verbose — include every project, metric, and achievement. Claude distills it into polished bullet points. The example file shows the expected format.
+3. **Clear example content** — delete the example resumes in `Generated Resumes/` and reset `categories.yaml`
 4. **Optionally set up Notion tracking** — run `/setup-notion` to create a job applications database automatically. Or set it up manually per [docs/reference.md](docs/reference.md#notion-setup).
 
 ## Usage
