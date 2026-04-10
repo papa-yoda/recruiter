@@ -1,6 +1,6 @@
 ---
 name: scan-jobs
-description: Fetch LinkedIn job descriptions, discover resume categories, and assign each job to a category. Use --force to re-process all jobs.
+description: Fetch LinkedIn job descriptions, discover resume categories, and assign each job to a category. Use this whenever the user adds new job URLs, mentions LinkedIn jobs, wants to categorize positions, or asks about job groupings — even if they don't say "scan". Use --force to re-process all jobs.
 argument-hint: [--force]
 allowed-tools:
   - Read
@@ -46,6 +46,7 @@ For each unprocessed URL:
    - **Full job description text** (responsibilities, requirements, qualifications)
    - **Key skills and technologies mentioned**
 3. If WebFetch fails for a URL, log the error and continue with remaining URLs. Do not stop the entire batch.
+4. If a fetched page indicates the job is no longer available (expired, removed, or "no longer accepting applications"), log it with `status: expired` in the tracking entry and skip categorization. Report expired URLs in the summary.
 
 ### Step 4: Categorize Jobs
 

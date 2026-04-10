@@ -1,6 +1,6 @@
 ---
 name: setup-notion
-description: Create a Notion job applications database with the correct schema, views, and save the IDs to config.yaml.
+description: One-time Notion database setup — creates the Job Applications database with correct schema, views, and saves IDs to config.yaml. Use when the user mentions setting up Notion, tracking applications, or when config.yaml has an empty notion.database_id.
 allowed-tools:
   - Read
   - Edit

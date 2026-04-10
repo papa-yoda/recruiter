@@ -1,6 +1,6 @@
 ---
 name: recruiter
-description: Full recruiter pipeline — scan jobs, generate resumes, build PDFs, sync Notion. Use --force to re-process everything.
+description: Full recruiter pipeline — scan jobs, generate resumes, build PDFs, sync Notion. This is the default entry point for most users. Use when the user wants to "run everything", "process my jobs", "do the full pipeline", or just says "go" after adding LinkedIn URLs. Use --force to re-process everything.
 argument-hint: [--force] [--skip-pdf] [--skip-notion]
 allowed-tools:
   - Read
@@ -43,26 +43,18 @@ You are a job search assistant running the full recruiter pipeline. This meta-sk
 
 ### Step 1: Scan Jobs
 
-Follow the complete `/scan-jobs` workflow:
+Read `.claude/skills/scan-jobs/SKILL.md` and follow its complete workflow. The detailed instructions for fetching, categorizing, and tracking jobs live there — not here. Key orchestration points:
 
-1. Read `categories.yaml` and `.processed-jobs.yaml`.
-2. Extract new URLs from `LinkedIn Jobs.md` (or all if `--force`).
-3. WebFetch each URL to get job descriptions.
-4. Discover or assign categories.
-5. **IMPORTANT**: If new categories are proposed, present them to the user and **wait for approval** before continuing. Do not proceed to resume generation until categories are confirmed.
-6. Save results to `categories.yaml` and `.processed-jobs.yaml`.
-7. Report scan results.
+1. Pass `--force` through if the user specified it.
+2. **IMPORTANT**: If new categories are proposed, present them to the user and **wait for approval** before continuing. Do not proceed to resume generation until categories are confirmed.
+3. Report scan results before moving to Step 2.
 
 ### Step 2: Generate Resumes
 
-Follow the complete `/generate-resumes` workflow:
+Read `.claude/skills/generate-resumes/SKILL.md` and follow its complete workflow. The detailed resume formatting rules, bullet point guidelines, and content integrity rules live there. Key orchestration points:
 
-1. Read `work-experience.md` for source material.
-2. For each category with jobs where `resume_generated: false` (or all if `--force`):
-   - Generate a tailored resume following the formatting rules in the `/generate-resumes` skill.
-   - Save to `Generated Resumes/{name} - {file_pattern}.md`.
-3. Update `.processed-jobs.yaml` tracking.
-4. Report which resumes were generated.
+1. Pass `--force` or `--category` through if specified.
+2. Report which resumes were generated before moving to Step 3.
 
 ### Step 3: Build PDFs (unless --skip-pdf)
 
@@ -83,7 +75,7 @@ If `$ARGUMENTS` does NOT contain `--skip-notion`:
 
 1. Check that `notion.database_id` is configured in `config.yaml`.
 2. If not configured, skip with a message (don't fail):
-   > "Skipping Notion sync: database_id not configured in config.yaml. See README.md for Notion setup."
+   > "Skipping Notion sync: database_id not configured. Run `/setup-notion` to create a database automatically, or add your database ID to `config.yaml` manually."
 3. If configured, follow the `/sync-notion` workflow to create/update entries.
 4. Report sync results.
 

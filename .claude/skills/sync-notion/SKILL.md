@@ -24,7 +24,7 @@ Synchronize processed job entries to a Notion database for tracking applications
 
 1. Read `config.yaml` for Notion settings (`database_id`, `data_source_id`, `year`).
 2. If `notion.database_id` is empty or missing, stop with a message:
-   > "Notion integration is not configured. To set it up, edit `config.yaml` and add your Notion database ID. See README.md for setup instructions. You can skip Notion sync by running individual skills instead of /recruiter."
+   > "Notion integration is not configured. Run `/setup-notion` to create a database automatically, or add your database ID to `config.yaml` manually. See README.md for details."
 3. Read `.processed-jobs.yaml` for the list of processed jobs.
 
 ### Step 2: Determine Jobs to Sync

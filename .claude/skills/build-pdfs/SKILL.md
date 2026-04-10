@@ -19,9 +19,12 @@ Convert generated resume markdown files into styled PDFs.
 
 1. Read `config.yaml` for candidate name and paths.
 2. Run `which pandoc` and `which weasyprint` to verify both are installed.
-3. If either is missing, stop and provide install instructions:
-   - **pandoc**: `brew install pandoc` (macOS) or `apt install pandoc` (Linux)
-   - **weasyprint**: `pip3 install weasyprint` (may need `libpango` and `libcairo` on Linux)
+3. If either is missing:
+   - If running in a devcontainer, these tools likely aren't available here. Tell the user to run the build from their host terminal instead: `cd "Generated Resumes" && ./build-resumes.sh`
+   - Otherwise, provide install instructions:
+     - **pandoc**: `brew install pandoc` (macOS) or `apt install pandoc` (Linux)
+     - **weasyprint**: `pip3 install weasyprint` (may need `libpango` and `libcairo` on Linux)
+   - Stop after providing the appropriate guidance.
 4. Verify `Generated Resumes/build-resumes.sh` exists and is executable.
 5. Verify `Generated Resumes/resume-style.css` exists.
 
@@ -60,10 +63,3 @@ Generated PDFs:
 - If `config.yaml` is missing, the script falls back to extracting the name from the markdown filename.
 - If weasyprint has font/rendering issues, suggest installing system fonts or checking CSS paths.
 
-## Note for Devcontainer Users
-
-The PDF build requires `pandoc` and `weasyprint` installed locally. If you're running Claude Code in a devcontainer, you may need to run this command from a host terminal instead:
-
-```bash
-cd "Generated Resumes" && ./build-resumes.sh
-```

@@ -1,6 +1,6 @@
 ---
 name: generate-resumes
-description: Generate tailored resume markdown files for each job category. Use --force to regenerate all, or --category <name> for a specific one.
+description: Generate tailored resume markdown files for each job category. Use this when the user wants resumes created, updated, or tailored — including requests like "make me a resume", "update my resume for these jobs", or "create resume variants". Use --force to regenerate all, or --category <name> for a specific one.
 argument-hint: [--force] [--category <name>]
 allowed-tools:
   - Read
@@ -33,7 +33,7 @@ You are a professional resume writer. Your job is to create ATS-optimized, tailo
 ### Step 3: Read Source Material
 
 1. Read the work experience file specified in `config.yaml` (default: `work-experience.md`).
-2. For each category being generated, collect the JD summaries from `.processed-jobs.yaml` for jobs in that category. These summaries inform keyword targeting.
+2. For each category being generated, read the `jd_summary` field from each job entry in `.processed-jobs.yaml` that belongs to that category. These summaries are the primary source for understanding what keywords, technologies, and requirements to target in the resume.
 
 ### Step 4: Generate Each Resume
 
@@ -77,6 +77,9 @@ For each category, create a tailored resume markdown file:
 - Include 1-2 key quantified achievements
 - Mirror language from the JDs in this category
 - Do NOT use first person ("I led...") — use implied subject ("Led...")
+
+#### Resume Length
+- Target a **one-page resume** for candidates with <10 years of experience, or **two pages** for more senior candidates. When in doubt, aim for one page — brevity forces better prioritization of the most impactful content.
 
 #### Work Experience Rules
 - List roles in **reverse chronological order**
