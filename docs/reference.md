@@ -42,6 +42,10 @@ Creates or updates Notion database entries for processed jobs.
 | *(none)* | Sync only jobs not yet in Notion |
 | `--force` | Re-sync all jobs (won't overwrite Status) |
 
+### `/setup-notion`
+
+One-time setup: creates a Notion database with the correct schema and views, saves IDs to `config.yaml`. Checks if already configured and asks before overwriting.
+
 ### `/recruiter`
 
 Runs the full pipeline: scan -> generate -> build -> sync.
@@ -78,6 +82,12 @@ To rename a category, update all four fields and run `/generate-resumes --force`
 ---
 
 ## Notion Setup
+
+### Automatic (recommended)
+
+Run `/setup-notion`. It creates the database with the correct schema and views, then saves the IDs to `config.yaml`. Only prerequisite: Notion MCP must be authenticated in Claude Code.
+
+### Manual
 
 1. Create a new full-page Notion database with these properties:
 

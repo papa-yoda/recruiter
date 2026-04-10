@@ -8,13 +8,14 @@ Works for any role, industry, or career level. Categories are discovered from yo
 
 - [Claude Code](https://claude.ai/code)
 - [pandoc](https://pandoc.org/installing.html) + [weasyprint](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html) (for PDF generation)
+- [Notion MCP Server](https://developers.notion.com/guides/mcp/get-started-with-mcp) 
 
 ## Setup
 
 1. **Fork & clone** this repo
 2. **Edit `config.yaml`** — fill in your name, email, location, and LinkedIn URL
 3. **Replace `work-experience.md`** with your own career history. Be verbose — include every project, metric, and achievement. Claude distills it into polished bullet points. The example file shows the expected format.
-4. **Optionally configure Notion** — add your database ID to `config.yaml` for application tracking. See [Notion setup](docs/reference.md#notion-setup).
+4. **Optionally set up Notion tracking** — run `/setup-notion` to create a job applications database automatically. Or set it up manually per [docs/reference.md](docs/reference.md#notion-setup).
 
 ## Usage
 

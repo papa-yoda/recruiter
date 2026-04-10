@@ -31,6 +31,7 @@ This template is **role-agnostic** — it works for any job type, industry, or c
 | `/scan-jobs` | Fetch JDs from LinkedIn, discover/assign categories | `--force` (re-process all) |
 | `/generate-resumes` | Create tailored resume MDs per category | `--force`, `--category <name>` |
 | `/build-pdfs` | Convert MDs to PDFs via pandoc + weasyprint | `--category <name>` |
+| `/setup-notion` | One-time: create Notion database with correct schema | — |
 | `/sync-notion` | Create/update Notion database entries | `--force` (re-sync all) |
 | `/recruiter` | Run full pipeline (all four steps) | `--force`, `--skip-pdf`, `--skip-notion` |
 
