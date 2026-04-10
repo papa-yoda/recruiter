@@ -1,0 +1,8 @@
+# Pipeline tracking state (auto-generated, per-user)
+.processed-jobs.yaml
+
+# OS files
+.DS_Store
+
+# Obsidian metadata
+*.sdr/

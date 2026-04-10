@@ -1,0 +1,119 @@
+/* Resume Stylesheet - Professional Sans-Serif Design */
+/* Optimized for WeasyPrint PDF generation */
+
+@page {
+  size: letter;
+  margin: 0.5in 0.6in;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.25;
+  color: #1a1a1a;
+}
+
+/* Header - Name */
+h1 {
+  text-align: center;
+  font-size: 22pt;
+  font-weight: 700;
+  margin-bottom: 0.15em;
+  letter-spacing: 0.02em;
+  color: #000;
+}
+
+/* Contact info line (paragraph right after h1) */
+h1 + p {
+  text-align: center;
+  font-size: 9.5pt;
+  color: #333;
+  margin-bottom: 0.8em;
+}
+
+/* Links in contact info */
+h1 + p a,
+a.email,
+a.uri {
+  color: #0066cc !important;
+  text-decoration: underline !important;
+}
+
+/* Horizontal rules - hidden */
+hr {
+  display: none;
+}
+
+/* Section headings */
+h2 {
+  font-size: 11pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #000;
+  margin-top: 0.6em;
+  margin-bottom: 0.4em;
+}
+
+/* Company/Role headers (bold text) */
+p strong:first-child {
+  font-size: 10pt;
+}
+
+/* Job entries - company and title line */
+p {
+  margin-bottom: 0.15em;
+}
+
+/* Location and date line (follows company line) */
+p + p:not(:has(strong)) {
+  color: #444;
+  font-size: 9.5pt;
+  margin-bottom: 0.3em;
+}
+
+/* Bullet lists */
+ul {
+  margin-left: 1.2em;
+  margin-bottom: 0.6em;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 0.15em;
+  padding-left: 0.2em;
+}
+
+/* Skills section - reduce space between skill categories */
+h2:contains("Skills") ~ p {
+  margin-bottom: 0.2em;
+}
+
+/* Education section styling */
+h2 + p strong {
+  font-weight: 600;
+}
+
+/* Prevent page breaks inside job entries */
+p + ul {
+  page-break-inside: avoid;
+}
+
+/* Keep company header with its bullets */
+p:has(strong) {
+  page-break-after: avoid;
+}
+
+/* Print optimizations */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

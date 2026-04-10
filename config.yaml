@@ -1,0 +1,42 @@
+# =============================================================
+# Resume Recruiter Configuration
+# Fill in your details below, then run /recruiter to get started
+# =============================================================
+
+candidate:
+  name: "Jane Doe"                          # Your full name
+  location: "City, State"                   # Your location
+  email: "jane.doe@email.com"               # Your email
+  linkedin: "https://www.linkedin.com/in/janedoe/"
+
+# Notion Job Applications Database (optional)
+#
+# To use Notion tracking, create a database with these properties:
+#   - Job Title    (title)
+#   - Company      (text)
+#   - Job Link     (url)
+#   - Status       (select: Not Applied, Applied, Interview, Offer, Rejected)
+#   - Resume Version (select)
+#   - Category     (select)
+#   - Salary Min   (number)
+#   - Salary Max   (number)
+#   - Notes        (rich_text)
+#   - Year         (number)
+#
+# Then paste the database ID below. Find it in the Notion URL:
+#   https://www.notion.so/<workspace>/<database_id>?v=...
+#
+# Leave blank to skip Notion integration entirely.
+notion:
+  database_id: ""                           # Your Notion database ID
+  data_source_id: ""                        # Your Notion data source ID (for MCP)
+  year: 2026                                # Current job search year
+
+# File paths (relative to this directory)
+# Adjust if you rename or move files
+paths:
+  work_experience: "work-experience.md"
+  linkedin_jobs: "LinkedIn Jobs.md"
+  generated_resumes: "Generated Resumes/"
+  categories: "categories.yaml"
+  tracking: ".processed-jobs.yaml"

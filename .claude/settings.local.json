@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.md$|^d\")",
+      "Read(//home/claude/.agents/skills/skill-creator/**)",
+      "Read(//home/claude/.agents/skills/**)"
+    ]
+  }
+}
